@@ -1,0 +1,27 @@
+{
+  "name": "cv-homography",
+  "version": "0.1.0",
+  "description": "Opencv-js homography bindings",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "dependencies": {
+    "mirada": "^0.0.15"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ashwhall/cv-homography.git"
+  },
+  "author": {
+    "name": "Ash Hall",
+    "email": "ashwhall@gmail.com",
+    "url": "https://ashwhall.github.io"
+  },
+  "license": "Apache 2.0 License",
+  "keywords": [
+    "opencv",
+    "homography",
+    "cv",
+    "computer vision"
+  ]
+}
