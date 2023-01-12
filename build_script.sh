@@ -37,5 +37,5 @@ mkdir ../dist
 cp ./build_wasm/bin/opencv_js.js ../index.js
 # Delete the opencv source
 cd .. && rm -rf ./opencv
-# Copy into dist
-cp ./* ./dist
+# Copy into dist, ignoring the error for not copying dist itself
+cp ./* ./dist || true
