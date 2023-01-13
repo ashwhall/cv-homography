@@ -2,6 +2,9 @@
 # Exit on error
 set -e
 
+# Load the version number from version.env
+source ./version.env
+
 # Install dependencies
 apt-get update &&
     apt-get install -y \
@@ -15,8 +18,10 @@ ln -s /usr/bin/python3 /usr/bin/python
 
 export EMSCRIPTEN=/emsdk/upstream/emscripten
 
-# Clone opencv
-git clone https://github.com/opencv/opencv.git
+# Download the opencv source for our desired version
+wget https://github.com/opencv/opencv/archive/refs/tags/$CV_VERSION.zip
+unzip $CV_VERSION.zip && rm $CV_VERSION.zip
+cd opencv-$CV_VERSION
 
 # Patch the build script to allow unknown arguments
 OLD_LINE="args = parser.parse_args()"
