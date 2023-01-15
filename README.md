@@ -12,4 +12,6 @@ For a list of the included functions, see [opencv_js.config.py](opencv_js.config
 
 ---
 
-Uses Github Actions to build and deploy to npm, but you can run `build_with_docker.sh` to build the package locally, producing `index.js` in the current directory.
+Uses Github Actions to build and deploy to npm, but you can run `build_with_docker.sh` to build the package locally to `./dist`.
+
+The major and minor version of this package should match the version of opencv.js that it is built against, with the patch version reserved for any changes to this repo.
