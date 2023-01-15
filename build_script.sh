@@ -38,3 +38,5 @@ emcmake python ./platforms/js/build_js.py \
 cp ./build_wasm/bin/opencv_js.js ../index.js
 # Delete the opencv source
 cd .. && rm -rf opencv
+# Copy into ./dist, ignoring error for skipping ./dist itself
+mkdir dist && cp ./* ./dist || true
