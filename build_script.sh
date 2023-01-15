@@ -19,7 +19,7 @@ ln -s /usr/bin/python3 /usr/bin/python
 export EMSCRIPTEN=/emsdk/upstream/emscripten
 
 # Clone opencv and checkout the version tag
-git clone --depth 1 --branch $CV_VERSION https://github.com/opencv/opencv.git ./opencv
+git clone --depth 1 --branch $CV_VERSION https://github.com/opencv/opencv.git
 cd ./opencv
 
 # Patch the build script to allow unknown arguments
