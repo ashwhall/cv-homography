@@ -19,26 +19,22 @@ ln -s /usr/bin/python3 /usr/bin/python
 export EMSCRIPTEN=/emsdk/upstream/emscripten
 
 # Clone opencv and checkout the version tag
-git clone --depth 1 --branch $CV_VERSION https://github.com/opencv/opencv.git
+git clone --depth 1 --branch $CV_VERSION https://github.com/opencv/opencv.git ./opencv
+cd ./opencv
 
 # Patch the build script to allow unknown arguments
 OLD_LINE="args = parser.parse_args()"
 NEW_LINE="args, _ = parser.parse_known_args()"
-sed -i "s/$OLD_LINE/$NEW_LINE/g" ./opencv/platforms/js/build_js.py
-cp ./opencv_js.config.py ./opencv/platforms/js/
+sed -i "s/$OLD_LINE/$NEW_LINE/g" ./platforms/js/build_js.py
+cp ../opencv_js.config.py ./platforms/js/
 
 # Build!
-cd opencv &&
-    emcmake python ./platforms/js/build_js.py \
-        ./build_wasm \
-        --build_wasm \
-        --build_test
+emcmake python ./platforms/js/build_js.py \
+    ./build_wasm \
+    --build_wasm \
+    --build_test
 
-# Bundle everything up into ./dist dir and clean up
-mkdir ../dist
-# Grab the built JS file
+# Grab the built JS file and clean up
 cp ./build_wasm/bin/opencv_js.js ../index.js
 # Delete the opencv source
-cd .. && rm -rf ./opencv
-# Copy into dist, ignoring the error for not copying dist itself
-cp ./* ./dist || true
+cd .. && rm -rf opencv
