@@ -1,2 +1,5 @@
 // Don't check in the built JS
 index.js
+opencv_js.wasm
+dist
+node_modules
