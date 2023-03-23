@@ -33,6 +33,7 @@ jobs:
         with:
           name: dist
       - run: npm install
+      - run: ls -al
       - uses: JS-DevTools/npm-publish@v1
         with:
           token: ${{ secrets.NPM_TOKEN }}

@@ -1,5 +1,7 @@
 # cv-homography
 
+_Note: This version (4.8.x) has been unpinned from the opencv version to gain quicker access to shrunk bundle sizes. Use 4.7.1 to retain version pinning._
+
 A subset of opencv.js pertaining to perspective transformations
 
 [![View on npm](https://img.shields.io/npm/v/cv-homography)](https://www.npmjs.org/package/cv-homography)
