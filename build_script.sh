@@ -32,12 +32,11 @@ cp ../opencv_js.config.py ./platforms/js/
 emcmake python ./platforms/js/build_js.py \
     ./build_wasm \
     --build_wasm \
-    --disable_single_file \
     --build_test
 
 # Grab the built JS file and clean up
 cp ./build_wasm/bin/opencv_js.js ../index.js
-cp ./build_wasm/bin/opencv_js.wasm ../opencv_js.wasm
+
 # Delete the opencv source
 cd .. && rm -rf opencv
 # Copy into ./dist, ignoring error for skipping ./dist itself

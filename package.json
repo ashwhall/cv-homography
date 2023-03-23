@@ -1,6 +1,6 @@
 {
   "name": "cv-homography",
-  "version": "4.7.3",
+  "version": "4.7.4",
   "description": "Opencv-js homography bindings",
   "main": "index.js",
   "types": "index.d.ts",
