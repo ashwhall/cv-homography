@@ -32,9 +32,7 @@ jobs:
       - uses: actions/download-artifact@v3
         with:
           name: dist
-      - run: npm install
-      - uses: JS-DevTools/npm-publish@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          access: public
-          package: dist/package.json
+      - run: npm install && npm config set _authToken ${{ secrets.NPM_TOKEN }} && npm publish
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+        working-directory: dist
